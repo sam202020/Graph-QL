@@ -6,11 +6,14 @@ var {
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
+  type RandomDie {
+    roll(numRolls: Int!): [Int]
+  }
   type Query {
     hello: String
     quoteOfTheDay: String
     random: Float!
-    rollDice(numDice: Int!, numSides: Int): [Int]
+    getDie(numSides: Int): RandomDie
   }
 `);
 
